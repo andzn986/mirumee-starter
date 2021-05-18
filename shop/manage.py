@@ -4,6 +4,8 @@ import os
 import sys
 
 
+# Running django: python manage.py runserver
+
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'shop.settings')
