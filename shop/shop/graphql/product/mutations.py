@@ -1,6 +1,6 @@
 import graphene
 
-from .types import ProductType
+from .types import ProductType, ProductVariantType
 from ...product.models import Product, ProductVariant
 
 
