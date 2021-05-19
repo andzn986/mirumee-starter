@@ -44,14 +44,14 @@ class ProductVariantCreate(graphene.Mutation):
         product_id = graphene.ID(required=True)
 
 
-@classmethod
-def clean_input(cls, data):
-    return data
+    @classmethod
+    def clean_input(cls, data):
+        return data
 
-@classmethod
-def mutate(cls, root, _info, input, product_id):
-    cleaned_input = cls.clean_input(input)
-    product_variant = ProductVariant.objects.create(**cleaned_input)
+    @classmethod
+    def mutate(cls, root, _info, input, product_id):
+        cleaned_input = cls.clean_input(input)
+        product_variant = ProductVariant.objects.create(**cleaned_input)
 
-    return ProductVariantCreate(product_variant*product_variant)
+        return ProductVariantCreate(product_variant*product_variant)
 
