@@ -6,6 +6,7 @@ import sys
 
 def main():
     """Run administrative tasks."""
+    """Running the server: python manage.py runserver"""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'shop.settings')
     try:
         from django.core.management import execute_from_command_line
