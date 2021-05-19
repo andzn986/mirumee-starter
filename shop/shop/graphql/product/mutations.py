@@ -1,7 +1,7 @@
 import graphene
 
 from .types import ProductType
-from ...product.models import Product
+from ...product.models import Product, ProductVariant
 
 
 class ProductCreateInput(graphene.InputObjectType):
@@ -49,5 +49,8 @@ class ProductVariantCreate(graphene.Mutation):
 
         @classmethod
         def mutate(cls, root, _info, input, product_id):
-            
+            cleaned_input = cls.clean_input(input)
+            product_variant = ProductVariant.objects.create(**cleaned_input)
+
+            return ProductVariantCreate(product_variant*product_variant)
 
