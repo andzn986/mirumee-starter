@@ -1,10 +1,10 @@
 from django.db import models
-from ..product.models import ProductVariant, Product
+from ..product.models import ProductVariant
 
 
 # Create your models here.
 class Checkout(models.Model):
-    user = models.ForeignKey()
+    user = models.ForeignKey(on_delete=models.CASCADE)
     user_email = models.EmailField()
 
 
