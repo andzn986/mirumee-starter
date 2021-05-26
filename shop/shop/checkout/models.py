@@ -1,10 +1,11 @@
 from django.db import models
 from ..product.models import ProductVariant
+from django.contrib.auth.models import User
 
 
 # Create your models here.
 class Checkout(models.Model):
-    user = models.ForeignKey(on_delete=models.CASCADE)
+    user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
     user_email = models.EmailField()
 
 
