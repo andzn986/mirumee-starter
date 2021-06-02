@@ -44,6 +44,8 @@ INSTALLED_APPS = [
 
     'shop.checkout',
 
+    'shop.account',
+
 ]
 
 MIDDLEWARE = [
