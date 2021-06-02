@@ -136,3 +136,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 GRAPHENE = {
     "SCHEMA": "shop.graphql.api.schema"
 }
+
+AUTH_USER_MODEL = "account.user"
