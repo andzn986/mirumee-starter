@@ -46,7 +46,7 @@ class ProductVariantCreate(graphene.Mutation):
 
     @classmethod
     def clean_input(cls, data):
-        
+        cls.clean_price()
         return data
 
     @classmethod
@@ -55,3 +55,7 @@ class ProductVariantCreate(graphene.Mutation):
         product_variant = ProductVariant.objects.create(product_id=product_id, **cleaned_input)
 
         return ProductVariantCreate(product_variant=product_variant)
+
+    @classmethod
+    def clean_price(cls):
+        pass
