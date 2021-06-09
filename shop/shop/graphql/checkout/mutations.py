@@ -1,5 +1,6 @@
 import graphene
 from django.core.exceptions import ValidationError
+from graphql_jwt.decorators import staff_member_required
 
 from ...checkout.models import Checkout, CheckoutLine
 from ...product.models import ProductVariant

@@ -46,6 +46,7 @@ class ProductVariantCreate(graphene.Mutation):
 
     @classmethod
     def clean_input(cls, data):
+        
         return data
 
     @classmethod
