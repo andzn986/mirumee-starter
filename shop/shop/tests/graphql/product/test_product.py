@@ -63,7 +63,7 @@ def test_product_list(db, client_query):
     content = json.loads(response.content)
 
     product_response = content['data']['products']
-    breakpoint()
+
     assert product_response[0]['description'] == product.description
     assert product_response[0]['price'] == str(product.price)
     assert product_response[0]['quantity'] == product.quantity
