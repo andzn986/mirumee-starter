@@ -1,6 +1,7 @@
+from decimal import Decimal
 import pytest
 from graphene_django.utils.testing import graphql_query
-from ..product.models import Product
+from ..product.models import Product, ProductVariant
 
 
 @pytest.fixture
