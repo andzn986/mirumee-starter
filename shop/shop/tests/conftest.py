@@ -16,6 +16,18 @@ def product():
     product = Product.objects.create(
         name="test",
         description="",
-        price=Decimal(10.00),
-
+        price=Decimal("10.00"),
+        quantity=10.00
     )
+    return product
+
+
+@pytest.fixture
+def variant(my_product):
+    variant = ProductVariant.objects.create(
+        product=my_product,
+        name="variant",
+        sku="my-variant"
+        price=Decimal("10.00")
+    )
+    return variant
