@@ -59,7 +59,7 @@ def test_product_list(db, client_query):
                 quantity
             }
         }
-        """
+        """,
     )
     content = json.loads(response.content)
 
