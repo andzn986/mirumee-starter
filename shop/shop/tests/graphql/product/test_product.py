@@ -22,7 +22,7 @@ def test_product_by_id(db, client_query):
                 quantity
             }
         }
-        """,
+         """,
         variables={'id': 1}
     )
     content = json.loads(response.content)
@@ -34,7 +34,6 @@ def test_product_by_id(db, client_query):
     assert product_response['quantity'] == product.quantity
     assert product_response['price'] == str(product.price)
 
-
 def test_product_list(db, client_query):
     product = Product.objects.create(
         name="test1",
@@ -42,7 +41,7 @@ def test_product_list(db, client_query):
         price=Decimal("10.00"),
         quantity=10.00
     )
-    product = Product.objects.create(
+    product2 = Product.objects.create(
         name="test2",
         description="test2",
         price=Decimal("20.00"),
@@ -63,8 +62,16 @@ def test_product_list(db, client_query):
     )
     content = json.loads(response.content)
 
-    products_response = content['data']
+    product_response = content['data']['products']
+    breakpoint()
+    assert product_response[0]['description'] == product.description
+    assert product_response[0]['price'] == str(product.price)
+    assert product_response[0]['quantity'] == product.quantity
+    assert product_response[0]['name'] == product.name
 
-    assert products_response['description'] == product.description
-    assert products_response['price'] == str(product.price)
-    assert products_response['quantity'] == product.quantity
+    assert product_response[1]['description'] == product2.description
+    assert product_response[1]['price'] == str(product2.price)
+    assert product_response[1]['quantity'] == product2.quantity
+    assert product_response[1]['name'] == product2.name
+
+
