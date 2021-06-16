@@ -10,6 +10,6 @@ def test_product_by_id(db, client_query):
     )
 
     response = client_query(
-        
+
     )
     pass
