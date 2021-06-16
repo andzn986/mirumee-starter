@@ -27,7 +27,7 @@ def variant(my_product):
     variant = ProductVariant.objects.create(
         product=my_product,
         name="variant",
-        sku="my-variant"
+        sku="my-variant",
         price=Decimal("10.00")
     )
     return variant
