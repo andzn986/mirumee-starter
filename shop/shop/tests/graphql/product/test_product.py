@@ -2,6 +2,7 @@ from ....product.models import Product
 import json
 from decimal import Decimal
 
+
 def test_product_by_id(db, client_query):
     product = Product.objects.create(
         name="Test Product",
@@ -22,10 +23,9 @@ def test_product_by_id(db, client_query):
             }
         }
         """,
-        variables={'id':1}
+        variables={'id': 1}
     )
     content = json.loads(response.content)
-
 
     product_response = content['data']['product']
 
